@@ -3,19 +3,22 @@ var gulp = require("gulp"),
     postcss = require("gulp-postcss"),
     autoprefixer = require("autoprefixer"),
     cssnano = require("cssnano"),
-    sourcemaps = require("gulp-sourcemaps");
-var browserSync = require("browser-sync").create();
+    sourcemaps = require("gulp-sourcemaps"),
+    rename = require("gulp-rename"),
+    wait = require("gulp-wait"),
+    browserSync = require("browser-sync").create();
 
 var paths = {
     styles: {
-        src: "styles/**/*.sass",
+        watchStyle: "styles/**/*.sass",
+        src: "styles/style.sass",
         dest: "styles"
     },
     htmls: {
         src: "*.html"
     }
 };
-
+// 
 function style() {
     return (
         gulp
@@ -24,9 +27,13 @@ function style() {
         .pipe(sass())
         .on("error", sass.logError)
         .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream())
+        .pipe(wait(1500))
     );
 }
 
@@ -46,7 +53,7 @@ function watch() {
             baseDir: "./"
         }
     });
-    gulp.watch(paths.styles.src, style);
+    gulp.watch(paths.styles.watchStyle, style);
     gulp.watch(paths.htmls.src, html);
 }
 
