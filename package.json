@@ -1,0 +1,35 @@
+{
+  "name": "gulp-web-starter",
+  "version": "1.0.0",
+  "description": "gulp starter untuk project baru.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadashfauzi/gulp-web-starter.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulp4",
+    "web",
+    "starter",
+    "kit"
+  ],
+  "author": "Ahmad Fauzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmadashfauzi/gulp-web-starter/issues"
+  },
+  "homepage": "https://github.com/ahmadashfauzi/gulp-web-starter#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.4.2",
+    "browser-sync": "^2.26.3",
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}
